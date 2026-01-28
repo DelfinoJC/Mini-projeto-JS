@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Little Project JS</title>
+</head>
+
+<body>
+    <header>
+        <input id="getTask" placeholder="pesquisar tarefa">
+    </header>
+    <main>
+        <section id="sectionTask">
+            <h2> Tarefas <button>Nova tarefa</button></h2>
+            <h6>Nenhuma tarefa registrada</h6>
+        </section>
+        <section id="overlay"></section>
+        <div class="modal">
+            <form>
+                <h3>Criar tarefa</h3>
+                <label for="titulo">titulo</label>
+                <input type="text" id="titulo">
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao"></textarea>
+                <button>Criar</button>
+            </form>
+        </div>
+    </main>
+    <script src="scprit.js"></script>
+</body>
+
+</html>
