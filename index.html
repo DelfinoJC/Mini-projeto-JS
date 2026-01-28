@@ -14,13 +14,13 @@
     </header>
     <main>
         <section id="sectionTask">
-            <h2> Tarefas <button>Nova tarefa</button></h2>
+            <h2> Tarefas <button onclick="newTaskButton()">Nova tarefa</button></h2>
             <h6>Nenhuma tarefa registrada</h6>
         </section>
-        <section id="overlay"></section>
-        <div class="modal">
+        <section id="overlay" onclick="closeModal()"></section>
+        <div id="createTask" class="modal">
             <form>
-                <h3>Criar tarefa</h3>
+                <h3>Criar tarefa <box-icon name='x' onclick="closeModal()"></box-icon></h3>
                 <label for="titulo">titulo</label>
                 <input type="text" id="titulo">
                 <label for="descricao">Descrição</label>
@@ -29,6 +29,7 @@
             </form>
         </div>
     </main>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="scprit.js"></script>
 </body>
 

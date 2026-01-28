@@ -47,11 +47,11 @@ header input {
     transition-duration: 200ms;
 }
 
-#sectionTask h2 button:hover{
+#sectionTask h2 button:hover {
     background-color: rgb(95, 31, 155);
 }
 
-#sectionTask h6{
+#sectionTask h6 {
     text-align: center;
     font-size: 24px;
     color: #999;
@@ -65,6 +65,14 @@ header input {
     top: 0;
     left: 0;
     z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    transition-duration: 200ms;
+}
+
+#overlay.active {
+    visibility: visible;
+    opacity: 1;
 }
 
 .modal {
@@ -77,12 +85,29 @@ header input {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
+    visibility: hidden;
+    opacity: 0;
+    transition-duration: 200ms;
 }
 
-.modal form h3{
+
+.modal.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal form h3 {
     font-size: 24px;
     color: #999;
     margin-bottom: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal form h3 box-icon {
+    fill: #999;
+    cursor: pointer;
 }
 
 .modal form label {
@@ -94,7 +119,7 @@ header input {
 }
 
 .modal form input,
-.modal form textarea{
+.modal form textarea {
     width: 100%;
     height: 46px;
     border: 2px solid #DEDEDE;
@@ -105,11 +130,11 @@ header input {
 }
 
 .modal form input:focus,
-.modal form textarea:focus{
+.modal form textarea:focus {
     border-color: blueviolet;
 }
 
-.modal form textarea{
+.modal form textarea {
     padding-top: 10px;
     height: 120px;
 }
@@ -129,6 +154,6 @@ header input {
     transition-duration: 200ms;
 }
 
-.modal form button:hover{
+.modal form button:hover {
     background-color: rgb(95, 31, 155);
 }
