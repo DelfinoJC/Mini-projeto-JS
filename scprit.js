@@ -10,10 +10,10 @@ const closeModal = () => {
 
 const getTask = () => {
     fetch('http://localhost:3000/task')
-    .then(res => res.json())
-    .then(data => {
-        insertTask(data)
-    })
+        .then(res => res.json())
+        .then(data => {
+            insertTask(data)
+        })
 }
 
 getTask();
@@ -34,4 +34,24 @@ const insertTask = (taskList) => {
             `;
         });
     }
+}
+
+const createTaskFunction = () => {
+    event.preventDefault();
+    let task = {
+        title: titulo.value,
+        description: descricao.value
+    }
+    fetch('http://localhost:3000/task', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(task)
+    })
+        .then(res => res.json())
+        .then(data => {
+            getTask();
+        })
+    closeModal();
 }

@@ -20,12 +20,12 @@
         </section>
         <section id="overlay" onclick="closeModal()"></section>
         <div id="createTask" class="modal">
-            <form>
+            <form onsubmit="createTaskFunction()">
                 <h3>Criar tarefa <box-icon name='x' onclick="closeModal()"></box-icon></h3>
                 <label for="titulo">titulo</label>
-                <input type="text" id="titulo">
+                <input type="text" id="titulo" required>
                 <label for="descricao">Descrição</label>
-                <textarea id="descricao"></textarea>
+                <textarea id="descricao" required></textarea>
                 <button>Criar</button>
             </form>
         </div>
