@@ -68,11 +68,16 @@ header input {
     margin-top: 36px;
 }
 
+#sectionTask ul li.hidden {
+    display: none;
+}
+
 #sectionTask ul li {
     width: calc(25% - 12px);
     padding: 16px;
     background-color: white;
     border-radius: 10px;
+    display: initial;
 }
 
 #sectionTask ul li .actions {
