@@ -27,7 +27,7 @@ const insertTask = (taskList) => {
                 <h3>${task.title}</h3>
                 <p>${task.description}</p>
                 <div class="actions">
-                    <img src="./images/edit.png" alt="editar" onclick="editTask(this)">
+                    <img src="./images/edit.png" alt="editar" onclick="loadingData(${task.id})">
                     <img src="./images/trash.png" alt="lixeira" onclick="deleteTask(${task.id})">
                 </div>
             </li>
@@ -86,4 +86,54 @@ const exportTask = () => {
             task.classList.remove('hidden');
         });
     }
+}
+
+let idTask
+
+const getTaskWithId = (id) => {
+    return fetch(`http://localhost:3000/task/${id}`)
+        .then(res => res.json())
+}
+
+
+const dataForm = (task) => {
+    titulo.value = task.title;
+    descricao.value = task.description;
+};
+
+const loadingData = (id) => {
+    console.log(id);
+    idTask = id;
+    let taskData = getTaskWithId(id);
+    taskData.then(task => {
+        dataForm(task);
+        overlay.classList.add('active');
+        createTask.classList.add('active');
+    })
+}
+
+const updateTaskFunction = () => {
+    event.preventDefault();
+
+    if (!idTask) {
+        console.error("ID da tarefa não encontrado!");
+        return;
+    }
+
+    let task = {
+        title: titulo.value,
+        description: descricao.value
+    }
+    fetch(`http://localhost:3000/task/${idTask}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(task)
+    })
+        .then(res => res.json())
+        .then(data => {
+            getTask();
+            closeModal();
+        })
 }
